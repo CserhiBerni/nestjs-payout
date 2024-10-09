@@ -2,6 +2,7 @@ import { Body, Controller, Get, Post, Render, Res } from '@nestjs/common';
 import { AppService } from './app.service';
 import { PayoutDto } from './Payout.dto';
 import { Response } from 'express';
+import { appendFile } from 'fs/promises';
 
 @Controller()
 export class AppController {
@@ -48,6 +49,8 @@ export class AppController {
     }
     else {
       response.redirect('/success')
+
+      appendFile('output.csv', `${name};${accountNumber}\n`)
     }
   }
 
