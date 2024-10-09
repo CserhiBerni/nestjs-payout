@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <title>Kifizetés</title>
+</head>
+<body>
+  <div class="container mt-5">
+    <h2>Űrlap</h2>
+    <form id="myForm" method="post">
+        <div class="form-group">
+            <label for="name">Név</label>
+            <input type="text" class="form-control" id="name" name="name" required>
+            <small id="nameHelp" class="form-text text-muted">Legalább egy karakter szükséges.</small>
+        </div>
+        <div class="form-group">
+            <label for="accountNumber">Bankszámlaszám</label>
+            <input type="text" class="form-control" id="accountNumber" name="accountNumber" required>
+            <small id="accountHelp" class="form-text text-muted">Formátum: 12345678-90123456 vagy 12345678-90123456-78901234.</small>
+        </div>
+        <div class="form-group form-check">
+            <input type="checkbox" class="form-check-input" id="terms" name="terms" required>
+            <label class="form-check-label" for="terms">Elfogadom a szerződési feltételeket</label>
+        </div>
+        <button type="submit" class="btn btn-primary">Küldés</button>
+        <% for (let i = 0; i < errors.length; i++) { %>
+          <p class="text-danger">
+            <%= errors[i] %>
+          </p>
+        <% } %>
+    </form>
+</div>
+</body>
+</html>
